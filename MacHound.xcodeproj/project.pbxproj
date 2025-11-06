@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9FB505642EB13F4900D6F243 /* MachOParser.c in Sources */ = {isa = PBXBuildFile; fileRef = 9FB505632EB13F4900D6F243 /* MachOParser.c */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		9FB5054F2EB13DBE00D6F243 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		9FB505512EB13DBE00D6F243 /* MacHound */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacHound; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FB505622EB13EA100D6F243 /* MachOParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MachOParser.h; sourceTree = "<group>"; };
+		9FB505632EB13F4900D6F243 /* MachOParser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MachOParser.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -44,6 +50,7 @@
 		9FB505482EB13DBE00D6F243 = {
 			isa = PBXGroup;
 			children = (
+				9FB5055E2EB13E0D00D6F243 /* Core */,
 				9FB505532EB13DBE00D6F243 /* MacHound */,
 				9FB505522EB13DBE00D6F243 /* Products */,
 			);
@@ -55,6 +62,31 @@
 				9FB505512EB13DBE00D6F243 /* MacHound */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9FB5055E2EB13E0D00D6F243 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9FB5055F2EB13E2100D6F243 /* Binary */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		9FB5055F2EB13E2100D6F243 /* Binary */ = {
+			isa = PBXGroup;
+			children = (
+				9FB505632EB13F4900D6F243 /* MachOParser.c */,
+				9FB505602EB13E3500D6F243 /* include */,
+			);
+			path = Binary;
+			sourceTree = "<group>";
+		};
+		9FB505602EB13E3500D6F243 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9FB505622EB13EA100D6F243 /* MachOParser.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +126,7 @@
 				TargetAttributes = {
 					9FB505502EB13DBE00D6F243 = {
 						CreatedOnToolsVersion = 26.0.1;
+						LastSwiftMigration = 2600;
 					};
 				};
 			};
@@ -121,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FB505642EB13F4900D6F243 /* MachOParser.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,11 +284,16 @@
 		9FB505592EB13DBE00D6F243 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CSY7A3869A;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(PROJECT_DIR)/Core/Binary/include";
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MacHound/MacHound-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -263,11 +302,15 @@
 		9FB5055A2EB13DBE00D6F243 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CSY7A3869A;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(PROJECT_DIR)/Core/Binary/include";
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MacHound/MacHound-Bridging-Header.h";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 			};
